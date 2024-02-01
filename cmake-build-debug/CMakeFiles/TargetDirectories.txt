@@ -1,0 +1,3 @@
+C:/Users/abolfazl/Desktop/MyProject/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/abolfazl/Desktop/MyProject/cmake-build-debug/CMakeFiles/MyProject.dir
+C:/Users/abolfazl/Desktop/MyProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
