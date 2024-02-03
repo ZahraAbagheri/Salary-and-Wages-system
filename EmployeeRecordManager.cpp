@@ -4,16 +4,17 @@
 
 using namespace std;
 
-void EmployeeRecordManager::manageEmployeeTimeRecords(string name) {
-    string myText;
-    ifstream MyReadFile("Exit&Enter.txt");
+void EmployeeRecordManager::manageEmployeeTimeRecords(string name){
 
-    while (getline (MyReadFile, myText)) {
-        if (myText.find(name)!= false){
-            cout<<myText;
+    ifstream file("Exit&Enter.txt");
+    if (file.is_open()) {
+                string line;
+                while (getline(file, line)) {
+                        if (line.find(name) != string::npos) {
+                                cout << line << endl;
+                    }}
+                file.close();
+            } else {
+                cout << "Unable to open file." << endl;
         }
-    }
-
-    MyReadFile.close();
-
 }
