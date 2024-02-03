@@ -8,13 +8,20 @@ using namespace std;
 
 
 int main() {
-    Employee emp("John", 123, 5000.0);
-    //cout << emp.name << endl;
+    Employee emp("John", 123, 5000);
     emp.trackHours(true);
-    ReportGenerator reportGenerator;
-    reportGenerator.generateTimeReport();
-    EmployeeRecordManager manager;
-    manager.manageEmployeeTimeRecords(emp.name);
+    
+    ReportGenerator reporter;
+    reporter.generateTimeReport();
+    reporter.generateDBReport();
+    
+    Employee emp1("Zahra" , 12344 , 10000);
+    emp1.trackHours(true);
+    
+    emp.trackHours(false);
+
+    EmployeeRecordManager empRecoManage;
+    empRecoManage.manageEmployeeTimeRecords("John");
     return 0;
 }
 
