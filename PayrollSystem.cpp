@@ -21,10 +21,10 @@ int PayrollSystem::provideBenefits(int salary, int benefit_time) {
 }
 
 string PayrollSystem::CurrentDate() {
-    auto now = chrono::system_clock::to_time_t(chrono::system_clock::now());
-    stringstream ss;
-    ss << put_time(localtime(&now), "%F");
-    return ss.str();
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+    string date = to_string(1900 + ltm->tm_year) + "-" + to_string(1 + ltm->tm_mon) + "-" + to_string(ltm->tm_mday);
+    return date;
 }
 
 int PayrollSystem::getCurrentHour() {
