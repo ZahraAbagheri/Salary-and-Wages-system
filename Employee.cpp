@@ -16,16 +16,23 @@ int Employee::calculateSalary() {
 void Employee::trackHours(bool enter) {
     string date = PayrollSystem::CurrentDate();
     int time = PayrollSystem::getCurrentHour();
-    ofstream file("Exit&Enter.txt");// باز کردن یک فایل برای هر کارمند با نام خودش در ادرس 'EE_logger\\نام کارمند.text'
+   ofstream file;
+    file.open("Exit&Enter.txt" , ios::app);
     if (file.is_open()) {// در صورت امکان نوشتن در فایل
         if (enter) {//
             // اگر کارمند وارد شده بود
-            file << name << date + " : enter time : " << time << "\n";
+            string msg = name + " " + date +" : enter time : ";
+            file << msg << time << endl;
+            file << "  ";
             file.close();
             last_enter = time;// ذخیره سازی زمان ورود
 
         } else {// اگر کارمند خارج شده بود
-            file << date << " : " << "exit time " << " : " << time << "\n";
+            string txt;
+            txt = name + date + ": exit time :" ;
+            file << txt << time << endl;
+            file << "  ";
+
             file.close();
             int dedu = time - last_enter;// محاسبه مقدار زمانی که کار کرده
             if (dedu < 8) {
